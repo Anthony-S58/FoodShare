@@ -20,17 +20,52 @@ $query->execute();
 $result = $query->fetchAll(PDO::FETCH_ASSOC); 
 
 if ($_POST) {
+    if(empty($_FILES['image']['name'])){
+    
+        $id = strip_tags($_GET['id']);
+        $userid= strip_tags($_POST ['userid']);
+        $titre = strip_tags($_POST['titre']);
+        $image = strip_tags($_FILES['image']['name']);
+        $nbre_personnes = strip_tags($_POST['nbre_personnes']);
+        $categorie = strip_tags($_POST['categorie']);
+        $temps_prepa = strip_tags($_POST['temps_prepa']);
+        $pays = strip_tags($_POST['pays']);
+        $description1 = strip_tags($_POST['description1']);
+        $description2 = strip_tags($_POST['description2']);
+        $description3 = strip_tags($_POST['description3']);
+
+        $sql = "UPDATE recettes SET userid=:userid, titre=:titre, nbre_personnes=:nbre_personnes, categorie=:categorie, temps_prepa=:temps_prepa, pays=:pays,description1=:description1, description2=:description2, description3=:description3 WHERE id=:id";
+        
+    $query = $bdd->prepare($sql);
+
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+        $query->bindValue(':userid', $userid);
+        $query->bindValue(':titre', $titre);
+        // $query->bindValue(':image', $image);
+        $query->bindValue(':nbre_personnes', $nbre_personnes);
+        $query->bindValue(':categorie', $categorie);
+        $query->bindValue(':temps_prepa', $temps_prepa);
+        $query->bindValue(':pays', $pays);
+        $query->bindValue(':description1', $description1);
+        $query->bindValue(':description2', $description2);
+        $query->bindValue(':description3', $description3);
+        $photo=$image;
+
+        $query->execute();
+        header("Location: mes_annonces.php");
+    }
+    else{
 
     if(isset($_POST['userid']) && !empty($_POST['userid'])
     && isset($_POST['titre']) && !empty($_POST['titre'])
-    && isset($_POST['image']) && !empty($_POST['image'])
+    && isset($_FILES['image']) && !empty($_FILES['image'])
     && isset($_POST['nbre_personnes']) && !empty($_POST['nbre_personnes'])
     && isset($_POST['categorie']) && !empty($_POST['categorie'])
     && isset($_POST['temps_prepa']) && !empty($_POST['temps_prepa'])
     && isset($_POST['pays']) && !empty($_POST['pays'])
-    && isset($_FILES['description1']) && !empty($_FILES['description1'])
-    && isset($_FILES['description2']) && !empty($_FILES['description2'])
-    && isset($_FILES['description3']) && !empty($_FILES['description3'])) {
+    && isset($_POST['description1']) && !empty($_POST['description1'])
+    && isset($_POST['description2']) && !empty($_POST['description2'])
+    && isset($_POST['description3']) && !empty($_POST['description3'])) {
         if(isset($_FILES['image'])){
             $tmpName = $_FILES['image']['tmp_name'];
             $name = $_FILES['image']['name'];
@@ -76,7 +111,7 @@ if ($_POST) {
 
 }else {
     echo 'Veuillez remplir tous les champs';
-}}
+}}}
 // récupération des données du projet
 if(isset($_GET['id'])&& !empty($_GET['id'])) {
 
@@ -130,6 +165,7 @@ header("Location: index.php");
         <input type="hidden" name="userid" placeholder="userid" value="<?php echo $projet['userid']?>"><br>
      
         <input type="text" name ="titre" placeholder="Titre" value="<?php echo $projet['titre']?>"><br>
+        <input type="hidden" name="image" placeholder="file" value="<?php echo $projet['image']?>"><br><br>
         <input type="file" name="image" placeholder="file"><br><br>
         <input type="number" name ="nbre_personnes" placeholder="nombre de personnes" value="<?php echo $projet['nbre_personnes']?>"><br>
         <select name="categorie" id="catform">
@@ -140,7 +176,7 @@ header("Location: index.php");
             <option value="Desserts" <?php if($projet['categorie'] === "Desserts"){echo "selected";}?>>Desserts</option>
             <option value="Cocktails" <?php if($projet['categorie'] === "Cocktails"){echo "selected";}?>>Cocktails</option>
         </select><br>
-        <input type="number" name ="temps_prepa" placeholder="temps_prepa" value="<?php echo $projet['temps_prepa']?>"><br>
+        <input type="number" name ="temps_prepa" placeholder="temps de préparation(en min)" value="<?php echo $projet['temps_prepa']?>"><br>
         <input type="text" name="pays" placeholder="pays" value="<?php echo $projet['pays']?>"><br>
         <textarea type="text" name ="description1" placeholder="Etape 1" id="describ"><?php echo $projet['description1']?></textarea><br>
         <textarea type="text" name ="description2" placeholder="Etape 2" id="describ"><?php echo $projet['description2']?></textarea><br>

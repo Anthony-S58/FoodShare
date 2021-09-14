@@ -11,9 +11,9 @@ if ($_POST) {
 
     if(isset($_POST['userid']) && !empty($_POST['userid'])  
     && isset($_POST['titre']) && !empty($_POST['titre'])
-    && isset($_POST['nbre_personnes']) && !empty($_POST['nbre_personnes'])
+    && isset($_POST['nbre_personnes']) 
     && isset($_POST['categorie']) && !empty($_POST['categorie'])
-    && isset($_POST['temps_prepa']) && !empty($_POST['temps_prepa'])
+    && isset($_POST['temps_prepa']) 
     && isset($_POST['pays']) && !empty($_POST['pays'])
     && isset($_POST['description1']) && !empty($_POST['description1'])
     && isset($_POST['description1']) && !empty($_POST['description2'])

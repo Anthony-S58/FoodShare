@@ -53,7 +53,7 @@ if(isset($_SESSION['admin'])){
     <link rel="stylesheet" href="CSS/connect.css">
     <link rel="stylesheet" href="CSS/users.css">
 
-    <title>BAD CORNER - Mes Annonces</title>
+    <title>FOODSHARE - Mes Recettes</title>
 </head>
 
 <body>
@@ -117,13 +117,15 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
     <hr>
+    <h3>Ingrédients</h3><br>
     <div class="description_view">
         <p><?= $projet['description1']?></p>
     </div>
     <hr>
+    <h3>Préparation</h3><br>
     <div class="description_view">
         <p><?= $projet['description2']?></p>
-    </div><hr>
+    </div>
     <div class="description_view">
         <p><?= $projet['description3']?></p>
     </div>

@@ -120,7 +120,7 @@ $depart = ($pagecourante-1)*$annoncesparpage;
                     <div class="photo_annonce"><a href="view_annonce.php?id=<?= $projet['id']?>"><img src="uploads/<?=$projet['image']?>" width="auto" height="auto" alt=""></a></div>
                     <div class="texte_annonce">
                         <h3><?= $projet['titre']?></h3>
-                        <h4><?= $projet['categorie']?></h4>
+                        <h4><?= $projet['categorie']?> €</h4>
                         <h5><?= $projet['pays']?></h5>
                     </div>
 

@@ -244,25 +244,14 @@ h1 {
     .texte_annonce{
         width: 150px;
         height: 120px;    
-        background-color: #f2efe9;
+        background-color: transparent;
         display: flex;
         justify-content: center;
         flex-direction: column;
         padding: 10px;
     }
 
-    /* .pagination{
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-       font-size: 1.5em;
-       color: #f2efe9;
-   }
-   .pagination a:hover{
-       background-color:#46237a;
-       color:white;
-   } */
+    
    #span_pagination
 {
     position: relative;

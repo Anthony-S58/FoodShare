@@ -42,7 +42,7 @@ if ($_POST) {
 
         $query->execute();
 
-    }}else {header('location:register.php');
+    }}else {header('location:connect.php');
     }
  }
 
