@@ -54,7 +54,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         <div class="photo_annonce"><img src="../uploads/<?=$projet['image']?>" alt=""></div>
         <div class="descript">
             <h2><?= $projet['titre']?></h2><br>
-            <h2><?= $projet['categorie']?> €</h2><br>
+            <h2><?= $projet['categorie']?></h2><br>
             <h2><?= $projet['pays']?></h2><br>
         </div>
         <div class="buttons">

@@ -31,6 +31,7 @@ $depart = ($pagecourante-1)*$annoncesparpage;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="IMG/logo.jpg" type="image/x-icon">
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/responsive.css">
     <title>FOOD SHARE - Accueil</title>
@@ -120,8 +121,8 @@ $depart = ($pagecourante-1)*$annoncesparpage;
                     <div class="photo_annonce"><a href="view_annonce.php?id=<?= $projet['id']?>"><img src="uploads/<?=$projet['image']?>" width="auto" height="auto" alt=""></a></div>
                     <div class="texte_annonce">
                         <h3><?= $projet['titre']?></h3>
-                        <h4><?= $projet['categorie']?> €</h4>
-                        <h5><?= $projet['pays']?></h5>
+                        <h4><?= $projet['categorie']?></h4>
+                        
                     </div>
 
                 </div>
@@ -143,8 +144,9 @@ $depart = ($pagecourante-1)*$annoncesparpage;
                 <div class="photo_annonce"><a href="view_annonce.php?id=<?= $projet['id']?>"><img src="uploads/<?=$projet['image']?>" width="auto" height="auto" alt=""></div>
                 <div class="texte_annonce">
                     <h3><?= $projet['titre']?></h3>
+                    <br>
                     <h4><?= $projet['categorie']?></h4>
-                    <h5><?= $projet['pays']?></h5></a>
+                    
                 </div>
 
             </div>

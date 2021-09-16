@@ -85,14 +85,16 @@ h1 {
 
 /* CATEGORIES */
 .accueil input {
-    width:200px;
-    height:28px;
+    width:250px;
+    height:40px;
     margin-right:5px; 
     margin-top: 40px;   
 }
 
 .accueil button{
     margin-top: 40px;
+    width: 40px;
+    height: 40px;
 }
 
 .accueil form{
@@ -107,6 +109,7 @@ h1 {
 
 .accueil ::placeholder{
     color:black;
+    font-size: 20px;
 }
 .categories {
     display: flex;
