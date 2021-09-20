@@ -105,8 +105,9 @@ $depart = ($pagecourante-1)*$annoncesparpage;
    <div class="titre_annonces">      
         <h2>Dernières Recettes</h2>
     </div>
-    <div class="annonces">
-            <?php
+<section id="results">
+
+           <?php
             
             if (isset($_GET['s'])){
                 $s= htmlspecialchars($_GET['s']);
@@ -116,14 +117,20 @@ $depart = ($pagecourante-1)*$annoncesparpage;
                 foreach ($annonces as $projet) {
                     ?>
 
-                <div class="cartes">
+                <div id="recette">
 
-                    <div class="photo_annonce"><a href="view_annonce.php?id=<?= $projet['id']?>"><img src="uploads/<?=$projet['image']?>" width="auto" height="auto" alt=""></a></div>
-                    <div class="texte_annonce">
-                        <h3><?= $projet['titre']?></h3>
-                        <h4><?= $projet['categorie']?></h4>
-                        
+                    <div id="photo">
+                        <img src="uploads/<?=$projet['image']?>" alt="">
                     </div>
+                    <div id="description">
+                        <div id="infos">
+                            <div id="titre"><h3><?= $projet['titre']?></h3></div>
+                            <div id="categorie"><h4><?= $projet['categorie']?></h4></div>
+                        </div>
+                        <button id="view"><a href="view_annonce.php?id=<?= $projet['id']?>">Voir la recette</a></button>
+                    </div>
+
+
 
                 </div>
                 
@@ -139,23 +146,30 @@ $depart = ($pagecourante-1)*$annoncesparpage;
                 foreach ($result as $projet) {
                 ?>
                 
-            <div class="cartes">
+                <div id="recette">
 
-                <div class="photo_annonce"><a href="view_annonce.php?id=<?= $projet['id']?>"><img src="uploads/<?=$projet['image']?>" width="auto" height="auto" alt=""></div>
-                <div class="texte_annonce">
-                    <h3><?= $projet['titre']?></h3>
-                    <br>
-                    <h4><?= $projet['categorie']?></h4>
-                    
+                    <div id="photo">
+                        <img src="uploads/<?=$projet['image']?>" alt="">
+                    </div>
+                    <div id="description">
+                        <div id="infos">
+                            <div id="titre"><h3><?= $projet['titre']?></h3></div>
+                            <div id="categorie"><h4><?= $projet['categorie']?></h4></div>
+                        </div>
+                        <button id="view"><a href="view_annonce.php?id=<?= $projet['id']?>">Voir la recette</a></button>
+                    </div>
+
+
+
                 </div>
-
-            </div>
 
 
             <?php
             }}
             ?>
-        </div>
+     
+       
+       </section> 
         <div class="pagination">
             <?php
             if (isset($_GET['s'])){
@@ -174,8 +188,6 @@ $depart = ($pagecourante-1)*$annoncesparpage;
             }}
 
             ?>
-        </div>
-
    <br><br><br><br>
 
    <hr>
